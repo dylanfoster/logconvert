@@ -21,33 +21,47 @@ and open the template in the editor.
         <br>
             <?php
            
-            $string=$_POST['data'];
             
+            
+            $string=$_POST['data'];
+            //$nstring=$string[0];
             $newstring=explode("\r\n", $string);
-            //echo $newstring[0];
+            
             $data="[".implode(",", $newstring).rtrim($data, ",");
             $data=rtrim($data, ",")."]";
             
+
             
             
-            
-            
-            
-            
-           
 ?>
+        
+        
         <form method="post" action="writer.php" id="writer">
-        <textarea rows='150' cols='80' id='output' name='ndata'><?php echo $data;?></textarea>
+        <textarea rows='150' cols='80' id='output' name='ndata'> <?php echo $data;?>
+        </textarea>
+            
         <input type='submit' value='export'>
         </form>
+        <button type='button' id='download'>Download</button>
+        
         <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
         <script type='text/javascript' src='/js/jquery.json-2.4.min.js'></script>
         <script type='text/javascript'>
         $(document).ready(function(){
            var jsonString = $.toJSON( $('textarea#output').val());
-           console.log(jsonString)
-        });  
-        
+           
+         console.log(jsonString);
+       
+       
+      
+        $('#download').click(function(){
+              console.log(jsonString) });
+              
+              
+    });
+    
+   
+    
         </script>
     </body>
 </html>

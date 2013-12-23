@@ -29,14 +29,15 @@ if((isset($_FILES["file"]["type"]) && $_FILES["file"]["type"] != NULL)
 		$JSON2CSV->readJSON($_POST['json']);
 		$JSON2CSV->browserDL("JSON2.CSV");
 	}
-}
+       
+} 
 else{
 	?>
 
 <html>
 <body>
-
-<form action="<?php echo $_SERVER['SCRIPT_NAME']; ?>" method="post" enctype="multipart/form-data">
+    <a href='index'><button type='button' name='return'><= Return Home</button></a>
+<form action="<?php echo $_SERVER['SCRIPT_NAME'];?>" method="post" enctype="multipart/form-data">
 <!--<label for="json">JSON data:</label>
 <textarea name="json" cols="150" rows="40">
 
@@ -46,6 +47,7 @@ else{
 <input type="file" name="file" id="file" />
 <br />
 <input type="submit" name="submit" value="Convert!" />
+
 </form>
 
 </body>

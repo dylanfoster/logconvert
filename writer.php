@@ -1,14 +1,18 @@
-<?php $file ='log.txt';
-        
+<?php 
 
+
+         $docroot=$_SERVER['DOCUMENT_ROOT'];
+         
 
         $data=$_POST['ndata'];
         
-            
+        $file=fopen($docroot . "/log.txt", "w+"); 
+        $tfile=$docroot . "/log.txt";
+        chmod($tfile, 0777);
           
-            
-        file_put_contents($file,$data);
         
+        fwrite($file,$data);
+        fclose($file);
         header('location:json2csv.php');
         ?>
 
